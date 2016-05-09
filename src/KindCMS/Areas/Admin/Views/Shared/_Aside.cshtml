@@ -1,0 +1,44 @@
+﻿<ul class="nav nav-sidebar">
+    <li @if(Html.IsRoutData(new Dictionary<string, object>() {{ "Controller","Home" },  { "Action","Index" }, {"Area","Admin" } } )){ <text>class="active"</text> } >
+        <a asp-controller="Home" asp-action="Index">
+            <span class="glyphicon glyphicon-dashboard"></span>
+            概览
+            <span class="sr-only">(current)</span>
+        </a>
+    </li>
+    <li  @if(Html.IsRoutData(new Dictionary<string, object>() {{ "Controller","User" },  { "Action","Index" } } )){ <text>class="active"</text> }>
+        <a asp-controller="User" asp-action="Index">
+            <span class="glyphicon glyphicon-user"></span>
+            用户管理
+        </a>
+    </li>
+
+</ul>
+<ul class="nav nav-sidebar">
+    <li  @if(Html.IsRoutData(new Dictionary<string, object>() { { "Controller", "Key" } } )){ <text>class="active"</text> }>
+        <a asp-controller="Key" asp-action="Index">
+            <span class="glyphicon glyphicon-list"></span>
+            分类管理
+        </a>
+    </li>
+    <li @if (Html.IsRoutData(new Dictionary<string, object>() { { "Controller", "Content" } })) { <text> class="active" </text>  }>
+        <a asp-controller="Content" asp-action="Index">
+            <span class="glyphicon glyphicon-list-alt"></span>
+            内容管理
+        </a>
+    </li>
+</ul>
+<ul class="nav nav-sidebar">
+    <li>
+        <a asp-controller="Home" asp-action="Shutdown">
+            <span class="glyphicon glyphicon-off"></span>
+            重启
+        </a>
+    </li>
+    <li>
+        <a href="~/runtimeinfo">
+            <span class="glyphicon glyphicon-fire"></span>
+            系统环境
+        </a>
+    </li>
+</ul>
