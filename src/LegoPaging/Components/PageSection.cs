@@ -9,7 +9,7 @@ using System.IO;
 
 namespace LegoPaging.Components
 {
-    public class PageSection:IHtmlContent
+    public class PageSection:IPageSection
     {
         public PageSection():this("span")
         {

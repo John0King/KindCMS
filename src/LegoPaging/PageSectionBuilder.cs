@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc.Rendering;
 
 namespace LegoPaging
 {
-    public interface ISectionBuilder
+    public class PageSectionBuilder
     {
-        void Build(Action<TagBuilder> setup);
     }
-
-    
 }
