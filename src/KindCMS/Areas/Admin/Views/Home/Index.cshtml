@@ -3,7 +3,7 @@
 }
 <h1 class="page-header">仪表盘</h1>
 <div class="row placeholders">
-    <div class="col-xs-6 col-sm-3 placeholder">
+    <div class="col-xs-6 col-sm-3 placeholder" title="该管理界面版本号" data-toggle="tooltip" data-placement="bottom">
         <div class="table table-bordered img-circle ring text-center h3 text-info">
             @LayoutView.Version
         </div>
@@ -22,7 +22,7 @@
         <h4>内存</h4>
         <span class="text-muted">进程内存/堆内存</span>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
+    <div class="col-xs-6 col-sm-3 placeholder" title="服务器的CPU配置信息" data-toggle="tooltip" data-placement="bottom">
         <div class="table table-bordered img-circle ring text-center h4 ">
             <div style="line-height:1.5em;margin-top:60px;" class="">
                 <span class="h1 text-primary">@MachineUtility.CPUCount()</span> 个CPU
@@ -35,7 +35,7 @@
         <h4>操作系统</h4>
         <span class="text-muted">服务器操作系统</span>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
+    <div class="col-xs-6 col-sm-3 placeholder" title="当前系统使用的运行时类型"  data-toggle="tooltip" data-placement="bottom">
         <div class="table table-bordered img-circle ring text-center h3 text-warning">
             @RuntimeInfo.RuntimeType  <span class="h6 text-muted">@RuntimeInfo.RuntimeVersion</span>
         </div>

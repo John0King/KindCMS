@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using KindCMS.Models;
 using Microsoft.AspNet.Authorization;
 using KindCMS.Areas.Admin.ViewModels.Key;
+using cloudscribe.Web.Pagination;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -172,6 +173,22 @@ namespace KindCMS.Areas.Admin.Controllers
             }
 
             return new KindCMS.Utility.JsErrorResult();
+        }
+
+        public IActionResult Search(string q,int Page)
+        {
+            if(Page < 1)
+            {
+                Page = 0;
+            }
+            if(Page >= 1)
+            {
+                Page -= 1;
+            }
+
+            ViewBag.q = q;
+            var list = _Db.Set<Classes>().Where(c => c.Key.Contains(q) || c.Name.Contains(q)).ToPagedList(Page,40);
+            return View(list);
         }
     }
 

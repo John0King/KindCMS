@@ -44,9 +44,13 @@ namespace LegoPaging
         /// <param name="pageCount"></param>
         /// <param name="TotalItemCount"></param>
         /// <returns></returns>
-        public static IPageList<T> ToBePagedList<T>(this IEnumerable<T> source, int CurrentPage,int pageCount,int TotalItemCount)
+        public static IPageList<T> ToBePagedList<T>(this IEnumerable<T> source, int CurrentPage,int PageSize,int pageCount,int TotalItemCount)
         {
-            int PageSize = source.Count();
+            int pageSize = source.Count();
+            if(PageSize < pageSize)
+            {
+                PageSize = pageSize;
+            }
             return new PageList<T>(source, CurrentPage, PageSize,pageCount,TotalItemCount);
         }
         /// <summary>

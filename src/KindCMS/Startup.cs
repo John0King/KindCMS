@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using KindCMS.Models;
 using KindCMS.Services;
+using cloudscribe.Web.Pagination;
 
 namespace KindCMS
 {
@@ -71,6 +72,10 @@ namespace KindCMS
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            // Add Pageing
+
+            services.AddTransient<IBuildPaginationLinks, PaginationLinkBuilder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

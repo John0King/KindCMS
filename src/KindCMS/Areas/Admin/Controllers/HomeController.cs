@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
+using KindCMS.Utility;
 
 namespace KindCMS.Areas.Admin.Controllers
 {

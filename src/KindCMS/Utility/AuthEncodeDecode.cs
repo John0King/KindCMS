@@ -18,6 +18,7 @@ namespace KindCMS.Utility
             this.Des = TripleDES.Create();
             Des.Key = KeyHash;
             Des.IV = new byte[Des.BlockSize / 8];
+
         }
 
         private TripleDES Des { get; set; }

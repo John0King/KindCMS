@@ -12,12 +12,14 @@ namespace KindCMS.Utility
 {
     public class AdminAuthorizeFilterAttribute:AuthorizationFilterAttribute
     {
+
+        public const string CookieName = "KindCMSAuth";
         public override void OnAuthorization(AuthorizationContext context)
         {
             
 
             HttpContext httpContext = context.HttpContext;
-            var AuthString = httpContext.Request.Cookies["KindCMSAuth"].ToString();
+            var AuthString = httpContext.Request.Cookies[CookieName].ToString();
             ITextEncodeDecode EDCoder = new AuthEncodeDecode();
             var RawAuthString = EDCoder.Decode(AuthString);
             Result =  JsonConvert.DeserializeObject<AdminAuthInfo>(RawAuthString);
@@ -29,7 +31,10 @@ namespace KindCMS.Utility
             {
                 if(Result == null)
                 {
-                    context.Result = new RedirectResult("/Admin/Login");
+                    string CurrentUrl = httpContext.Request.Path + httpContext.Request.QueryString.Value;
+                    context.Result = new RedirectToActionResult("Login", "Account", new Dictionary<string, object> {
+                        { "area", "Admin" }, { "returnUrl", CurrentUrl }
+                    } );
                 }
             }
         }
@@ -53,7 +58,7 @@ namespace KindCMS.Utility
         public string Id { get; set; }
         public string Name { get; set; }
         public bool IsLogin { get; set; }
-        public ICollection<KeyValuePair<string,string>> Clames { get; set; }
+        public IDictionary<string,string> Clames { get; set; }
 
     }
 }

@@ -22,7 +22,7 @@ namespace ControllerTest.LegoPageTest
         [Fact]
         public void ToPageListTest()
         {
-            LegoPaging.IPageList<int> PageList = LegoPaging.Extensions.ToBePagedList(List, 1, 3, 30000);
+            LegoPaging.IPageList<int> PageList = LegoPaging.Extensions.ToBePagedList(List, 1,List.Count() ,3, 30000);
 
         }
     }

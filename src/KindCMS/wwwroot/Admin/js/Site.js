@@ -1,7 +1,9 @@
-﻿// Write your Javascript code.
+﻿// for tooltip 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
+
+// for resize fix siderbar problem
 $(window).resize(function () {
     try{
         var slid = $("#SideBar");
@@ -11,5 +13,5 @@ $(window).resize(function () {
         slid.css("height", "");
 
     }
-    catch(e){}
+    catch (e) {}
 });
