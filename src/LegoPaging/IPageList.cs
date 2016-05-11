@@ -8,7 +8,7 @@ namespace LegoPaging
     /// <summary>
     /// 
     /// </summary>
-    public interface IPageList
+    public interface IPageModel
     {
         int PageCount { get; }
         int TotalItemCount { get; }
@@ -16,9 +16,17 @@ namespace LegoPaging
         int PageSize { get; }
     }
 
-    public interface IPageList<out T> : IPageList,IEnumerable<T>
+    public interface IPageList<out T> : IPageModel,IEnumerable<T>
     {
-        
+        T this[int Index] { get; }
+    }
+
+    public static class IPageModelExt
+    {
+        public static bool IsFirstPage(this IPageModel model)
+        {
+            return model.CurrentPage <= 1;
+        }
     }
     
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LegoPaging.Components
 {
-    interface IPageSection:IHtmlContent
+    public interface IPageSection:IHtmlContent
     {
         void Append(IHtmlContent PageItem);
     }

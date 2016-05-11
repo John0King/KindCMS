@@ -38,12 +38,12 @@ namespace LegoPaging.Components
         /// </summary>
         public TagBuilder Root { get; private set; }
         /// <summary>
-        /// 往里面添加 <see cref="PageSection"/>
+        /// 往里面添加 <see cref="IPageSection"/>
         /// </summary>
         /// <param name="section"></param>
-        public void AppendSection(PageSection section)
+        public void AppendSection(IPageSection section)
         {
-            Root.InnerHtml.AppendHtml(section.ToString());
+            Root.InnerHtml.Append(section);
         }
         /// <summary>
         /// 设置 根标签

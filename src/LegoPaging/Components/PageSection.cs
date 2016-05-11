@@ -9,7 +9,7 @@ using System.IO;
 
 namespace LegoPaging.Components
 {
-    public class PageSection:IPageSection
+    public abstract class PageSection:IPageSection
     {
         public PageSection():this("span")
         {
@@ -24,16 +24,23 @@ namespace LegoPaging.Components
             this.Section = new TagBuilder(sectionTag);
         }
 
-        public TagBuilder Section { get; private set; }
+        public virtual TagBuilder Section { get; private set; }
 
-        public void Append(IHtmlContent item)
+        public virtual void Append(IHtmlContent item)
         {
             this.Section.InnerHtml.Append(item);
         }
 
-        public void WriteTo(TextWriter writer, IHtmlEncoder encoder)
+        public virtual void WriteTo(TextWriter writer, IHtmlEncoder encoder)
         {
             Section.WriteTo(writer, encoder);
         }
+
+        //public override string ToString()
+        //{
+        //    StringWriter TW = new StringWriter();
+        //    WriteTo(TW, Microsoft.Extensions.WebEncoders.HtmlEncoder.Default);
+        //    return TW.GetStringBuilder().ToString();
+        //}
     }
 }

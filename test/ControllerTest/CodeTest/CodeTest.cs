@@ -11,16 +11,16 @@ namespace ControllerTest
 {
     public class CodeTest
     {
-        [Fact]
-        public void Test1()
-        {
-            string sp = "";
-            string vp = "";
-            PathString p = new PathString("~/Home/Index");
-            sp = p.ToString();
-            vp = p.Value;
-            Assert.Equal(vp, "/Home/Index?a=A&好=就是好");
-        }
+        //[Fact]
+        //public void Test1()
+        //{
+        //    string sp = "";
+        //    string vp = "";
+        //    PathString p = new PathString("~/Home/Index");
+        //    sp = p.ToString();
+        //    vp = p.Value;
+        //    Assert.Equal(vp, "/Home/Index?a=A&好=就是好");
+        //}
         [Fact]
         public void TestA()
         {

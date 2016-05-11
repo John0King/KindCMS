@@ -12,6 +12,7 @@ namespace LegoPaging.Components
 
     public interface IPageItem : IHtmlContent
     {
+        void Arrange();
     }
     public class PageItem : IPageItem
     {
@@ -28,19 +29,20 @@ namespace LegoPaging.Components
 
         public TagBuilder Tag { get; private set; }
 
-        public IHtmlContent ToHtml()
-        {
-            throw new NotImplementedException();
-        }
 
         public void WriteTo(TextWriter writer, IHtmlEncoder encoder)
         {
             Tag.WriteTo(writer, encoder);
         }
 
-        public void AppendTo(PageSection section)
+        public void AppendTo(IPageSection section)
         {
             section.Append(this);
+        }
+
+        public void Arrange()
+        {
+            throw new NotImplementedException();
         }
     }
 }
