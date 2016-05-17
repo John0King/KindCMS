@@ -3,6 +3,17 @@
 }
 <h2>@ViewData["Title"].</h2>
 <h3>@ViewData["Message"]</h3>
+<p>
+    Your IP:<code>@Context.Connection.RemoteIpAddress;</code><br />
+    Your Port:<code>@Context.Connection.RemotePort</code><br />
+    Server IP:<code>@Context.Connection.LocalIpAddress</code>
+    server Port:<code>@Context.Connection.LocalPort</code>
+</p>
+<p>
+    @foreach(var item in Context.Request.Headers)
+    {
+        <code>@item.Key</code> <text>-> @item.Value </text>  <br />
 
+    }
+</p>
 <p>Use this area to provide additional information.</p>
-
